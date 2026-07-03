@@ -6,71 +6,50 @@
     Date: June 23, 2026
 """
 
-import subnetmask_calculator as sc
-
-def prefix_bits():
-    """Return the bit values used to calculate one subnet-mask octet."""
-    numbers = [128, 64, 32, 16, 8, 4, 2, 1]
-    return numbers
-
-def single_octet_bits():
-    """Return the number of bits in one IPv4 octet."""
-    return len(prefix_bits())
-
-def number_of_octets():
-    """Return the number of octets in an IPv4 address."""
-    return 4
-
-def total_bits():
-    return (single_octet_bits() * number_of_octets())
-
-
-  
-def unusable_IPs():
-    """Return the 2 traditionally reserved network and broadcast addresses."""
-    return 2
-
-def octect_value():
-    """Return the maximum decimal value of one IPv4 octet."""
-    return sum(prefix_bits())
-
-def usable_ip(num):
-    """
-    Calculate the number of usable IPv4 host addresses.
-
-    Args:
-        num: The CIDR prefix.
-
-    Returns:
-        The number of usable host addresses.
-    """
-    num = total_bits() - num
-    num = (unusable_IPs() ** num) - unusable_IPs()
-    return num
+class Functions:
+    @staticmethod
+    def prefix_bits():
+        """Return the bit values used to calculate one subnet-mask octet."""
+        numbers = [128, 64, 32, 16, 8, 4, 2, 1]
+        return numbers
+    
+    @staticmethod
+    def single_octet_bits():
+        """Return the number of bits in one IPv4 octet."""
+        return len(Functions.prefix_bits())
+    
+    @staticmethod
+    def number_of_octets():
+        """Return the number of octets in an IPv4 address."""
+        return 4
+    
+    @staticmethod
+    def total_bits():
+        return (Functions.single_octet_bits() * Functions.number_of_octets())
 
 
-def get_result(cidr,desc):
-    """
-    Display the calculated CIDR information.
+    @staticmethod
+    def unusable_IPs():
+        """Return the 2 traditionally reserved network and broadcast addresses."""
+        return 2
+    
+    @staticmethod
+    def octect_value():
+        """Return the maximum decimal value of one IPv4 octet."""
+        return sum(Functions.prefix_bits())
+    
+    @staticmethod
+    def usable_ip(num):
+        """
+        Calculate the number of usable IPv4 host addresses.
 
-    Args:
-        cidr: An integer from 0 to 32.
-        desc: A description of the CIDR prefix.
-    """
-    if cidr == 31:
-        ip = 2
-    elif cidr == 32:
-        ip = 1
-    else: 
-        ip = usable_ip(cidr)
-        
-    print(f'CIDR: /{cidr}')
-    print(f'Number of useable host: {ip}')
-    print(f'Subnet Mask: {".".join(map(str,(sc.subnetmask_calculator(cidr))))}')
-    print('Description: ' + desc)
+        Args:
+            num: The CIDR prefix.
 
-def display_menu():
-    """Display the main menu options."""
-    print('1. Claseful Subnet Info')
-    print('2. Manual CIDR Calculator')
-    print('3. Exit')
+        Returns:
+            The number of usable host addresses.
+        """
+        num = Functions.total_bits() - num
+        num = (Functions.unusable_IPs() ** num) - Functions.unusable_IPs()
+        return num
+
