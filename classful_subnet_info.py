@@ -6,11 +6,12 @@
     Date: June 23, 2026
 """
 
-import functions as f
+from functions import Functions
 import subnetmask_calculator as sc
 
 
 def class_A():
+    f = Functions()
     """
     Return the host-bit and network-bit counts for Class A.
 

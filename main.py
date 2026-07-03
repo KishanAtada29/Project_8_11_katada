@@ -8,16 +8,20 @@
 """
 
 import classful_subnet_info as csi
-import cidr_input as ci
-import functions as f        
+import cidr_input as ci   
 
+def display_menu():
+    """Display the main menu options."""
+    print('1. Claseful Subnet Info')
+    print('2. Manual CIDR Calculator')
+    print('3. Exit')
 
 while True:
     print('')
     print('Subnetmask Planner')
     print('-------------------')
     print('')
-    f.display_menu()
+    display_menu()
     print('')
     user_choice = int(input('Please Enter One of the Choice (1-3): '))
     print('')
@@ -25,7 +29,7 @@ while True:
         print('')
         print('Invalid option...')
         print('')
-        f.display_menu()
+        display_menu()
         print('')
         user_choice = int(input('Please Enter One of the Choice (1-3): '))
 
@@ -45,5 +49,7 @@ while True:
         break
     print('')
     input('Press Enter to continue...')
+
+
 
 

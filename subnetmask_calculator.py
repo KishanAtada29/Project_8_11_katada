@@ -1,8 +1,9 @@
 """Converts a CIDR prefix into a four-octet subnet mask."""
 
-import functions as f
+from functions import Functions
 
 def subnetmask_calculator(cidr):
+    f = Functions()
     """
     Convert a CIDR prefix into a subnet mask.
 
