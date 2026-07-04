@@ -9,9 +9,8 @@
 from functions import Functions
 import subnetmask_calculator as sc
 
-
+f = Functions()
 def class_A():
-    f = Functions()
     """
     Return the host-bit and network-bit counts for Class A.
 
