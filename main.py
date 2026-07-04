@@ -8,8 +8,9 @@
 """
 
 import classful_subnet_info as csi
-import cidr_input as ci   
+from cidr_input import CidrInput 
 
+ci = CidrInput()
 def display_menu():
     """Display the main menu options."""
     print('1. Claseful Subnet Info')

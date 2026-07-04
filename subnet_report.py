@@ -1,9 +1,9 @@
 class SubnetReport:
     def __init__(self, cidr,usable_ip, subnetmask,description):
-        self._cidr = cidr
-        self._usable_ip = usable_ip
-        self._subnetmask = subnetmask
-        self._description = description
+        self.__cidr = cidr
+        self.__usable_ip = usable_ip
+        self.__subnetmask = subnetmask
+        self.__description = description
 
     def get_cidr(self):
         """Return the CIDR prefix."""
