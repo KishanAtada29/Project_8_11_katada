@@ -17,6 +17,7 @@ def display_menu():
     print('2. Manual CIDR Calculator')
     print('3. Exit')
 
+
 while True:
     print('')
     print('Subnetmask Planner')
@@ -24,19 +25,18 @@ while True:
     print('')
     display_menu()
     print('')
-    user_choice = int(input('Please Enter One of the Choice (1-3): '))
-    print('')
-    while user_choice not in [1,2,3]:
+    try:
+        user_choice = int(input('Please Enter One of the Choice (1-3): '))
+    except ValueError:
+        print('Please Enter the Number..')
+        continue
+    if user_choice not in [1,2,3]:
         print('')
         print('Invalid option...')
         print('')
         display_menu()
         print('')
         user_choice = int(input('Please Enter One of the Choice (1-3): '))
-
-    
-    
-
 
     if user_choice == 1:
         csi.classful_subnet()
@@ -50,6 +50,9 @@ while True:
         break
     print('')
     input('Press Enter to continue...')
+
+
+
 
 
 

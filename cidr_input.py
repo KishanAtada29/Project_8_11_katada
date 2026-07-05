@@ -27,7 +27,7 @@ class CidrInput:
             ip = 1
         else: 
             ip = f.usable_ip(cidr)
-            
+
         subnet_mask = sc.subnetmask_calculator(cidr)
         report = SubnetReport(cidr, ip, subnet_mask, desc)
         report.display_report()           
@@ -40,15 +40,20 @@ class CidrInput:
         The function validates that the CIDR value is between 0 and 32.
         """
         print('')
-        cidr = int(input('Please enter CIDR (0-32): '))
-        while cidr > 32 or cidr < 0:
-            print('Error...')
-            cidr = int(input('Please enter CIDR (0-32): '))
+        while True:
 
-
+            try:
+                cidr = int(input('Please enter CIDR (0-32): '))
+                if cidr > 32 or cidr < 0:
+                    print('Error... CIDR must be btween 0 to 32')
+                else:
+                    break
+            
+            except ValueError:
+                print('Please Enter the number.')
         print('')
         self.get_result(cidr, cd.cidr_desc(cidr))
-   
-   
+    
+    
 
     
