@@ -10,6 +10,7 @@
 import classful_subnet_info as csi
 from cidr_input import CidrInput 
 
+
 ci = CidrInput()
 def display_menu():
     """Display the main menu options."""

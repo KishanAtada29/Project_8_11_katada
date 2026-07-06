@@ -9,6 +9,7 @@ import subnetmask_calculator as sc
 from functions import Functions
 import cidr_desc as cd
 from subnet_report import SubnetReport
+from file_manager import FileManager
 
 class CidrInput:
 
@@ -30,7 +31,12 @@ class CidrInput:
 
         subnet_mask = sc.subnetmask_calculator(cidr)
         report = SubnetReport(cidr, ip, subnet_mask, desc)
-        report.display_report()           
+        report.display_report()
+        save_choice = input("Do you want to save this report? yes/no: ").lower()
+
+        if save_choice == "yes":
+            file_manager = FileManager()
+            file_manager.save_report(report)           
             
 
     def cidr_calculator(self):

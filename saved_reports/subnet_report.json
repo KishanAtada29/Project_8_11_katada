@@ -1,0 +1,11 @@
+{
+    "cidr": 22,
+    "usable_ip": 1022,
+    "subnetmask": [
+        255,
+        255,
+        252,
+        0
+    ],
+    "description": "Commonly used for Medium-to-large networks."
+}
