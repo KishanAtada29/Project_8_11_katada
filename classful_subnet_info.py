@@ -1,83 +1,46 @@
 """
-    Program Name: Subnet Planner
-    Author: Kishan Atada
-    Purpose: Calculate and display default Class A, Class B, and Class C subnet information.
-    Starter Code Information: No starter code was used.
-    Date: June 23, 2026
+Program Name: Subnet Planner
+Author: Kishan Atada
+Purpose: Calculate and display default Class A, Class B, and Class C subnet information.
+Starter Code Information: No starter code was used.
+Date: July 8th, 2026
 """
 
 from functions import Functions
+from subnet_report import SubnetReport
 import subnetmask_calculator as sc
 
-f = Functions()
-def class_A():
-    """
-    Return the host-bit and network-bit counts for Class A.
 
-    Returns:
-        A tuple containing host bits and network bits.
-    """
-    network_portion = f.single_octet_bits() * 1
-    host_portion = f.single_octet_bits() * 3
-    return host_portion, network_portion
-def class_B():
-    """
-    Return the host-bit and network-bit counts for Class B.
+class ClassfulSubnetInfo:
+    """Displays default Class A, Class B, and Class C subnet information."""
 
-    Returns:
-        A tuple containing host bits and network bits.
-    """
-    network_portion = f.single_octet_bits() * 2
-    host_portion = f.single_octet_bits() * 2
-    return host_portion, network_portion
-def class_C():
-    """
-    Return the host-bit and network-bit counts for Class C.
-
-    Returns:
-        A tuple containing host bits and network bits.
-    """
-    network_portion = f.single_octet_bits() * 3
-    host_portion = f.single_octet_bits() * 1
-    return host_portion, network_portion
-
-# In a subnet mask, 1 represensts the network portion and 0 represents the host portion
-# class_x [0] = host side
-# class_x [1] = network side  
-
-def classful_subnet():
-    """
-    Display Class A, Class B, and Class C subnet information.
-
-    The function shows the default CIDR prefix, usable hosts,
-    and subnet mask for each class.
-    """
-    a = class_A()
-    b = class_B()
-    c = class_C()
-    classful_subnet = {
-       'class A':{
-           'CIDR': f'/{a[1]}',
-           'Number of usable IPs': (2**a[0]) - f.unusable_IPs(),
-           'Subnet Mask': f'{".".join(map(str,(sc.subnetmask_calculator(a[1]))))}'
-       },
-       'class B':{
-           'CIDR': f'/{b[1]}',
-           'Number of usable IPs': (2**b[0]) - f.unusable_IPs(),
-           'Subnet Mask': f'{".".join(map(str,(sc.subnetmask_calculator(b[1]))))}'
-        },
-        'class C':{
-           'CIDR': f'/{c[1]}',
-           'Number of usable IPs': (2**c[0]) - f.unusable_IPs(),
-           'Subnet Mask': f'{".".join(map(str,(sc.subnetmask_calculator(c[1]))))}'
+    def __init__(self):
+        """Store default classful subnet CIDR values."""
+        self.__classful_data = {
+            "Class A": 8,
+            "Class B": 16,
+            "Class C": 24
         }
 
-    }
+    def get_classful_data(self):
+        """Return classful subnet data."""
+        return self.__classful_data
 
-    for subnetmask, value in classful_subnet.items():
-        print('')
-        print(subnetmask)
-        for label, information in value.items():
-            print(f'{label} : {information}')
+    def calculate_usable_hosts(self, cidr):
+        """Calculate usable hosts from a CIDR prefix."""
+        host_portion = Functions.total_bits() - cidr
+        return (2 ** host_portion) - Functions.unusable_IPs()
 
-        print('------------------------') 
+    def display_classful_subnet(self):
+        """Display Class A, Class B, and Class C subnet information."""
+        for class_name, cidr in self.__classful_data.items():
+            usable_hosts = self.calculate_usable_hosts(cidr)
+            subnet_mask = sc.subnetmask_calculator(cidr)
+            description = f"Default {class_name} subnet."
+
+            report = SubnetReport(cidr, usable_hosts, subnet_mask, description)
+
+            print()
+            print(class_name)
+            report.display_report()
+            print("-------------------------")

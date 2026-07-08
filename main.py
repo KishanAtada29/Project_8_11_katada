@@ -12,6 +12,7 @@ from cidr_input import CidrInput
 
 
 ci = CidrInput()
+classful_info = csi.ClassfulSubnetInfo()
 def display_menu():
     """Display the main menu options."""
     print('1. Claseful Subnet Info')
@@ -40,7 +41,7 @@ while True:
         user_choice = int(input('Please Enter One of the Choice (1-3): '))
 
     if user_choice == 1:
-        csi.classful_subnet()
+        classful_info.display_classful_subnet()
     elif user_choice == 2:
         ci.cidr_calculator()
         
