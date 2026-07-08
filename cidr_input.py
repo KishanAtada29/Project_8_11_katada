@@ -5,16 +5,18 @@
     Starter Code Information: No starter code was used.
     Date: June 23, 2026
 """
-import subnetmask_calculator as sc
+from subnetmask_calculator import SubnetMaskCalculator
 from functions import Functions
 import cidr_desc as cd
 from subnet_report import SubnetReport
 from file_manager import FileManager
 
 class CidrInput:
+    def __init__(self):
+        self._function = Functions()
+        self._file_manger = FileManager()
 
     def get_result(self,cidr,desc):
-        f = Functions()
         """
         Display the calculated CIDR information.
 
@@ -27,16 +29,16 @@ class CidrInput:
         elif cidr == 32:
             ip = 1
         else: 
-            ip = f.usable_ip(cidr)
+            ip = self._function.usable_ip(cidr)
 
-        subnet_mask = sc.subnetmask_calculator(cidr)
+        calculator = SubnetMaskCalculator(cidr)
+        subnet_mask = calculator.calculate_subnetmask()
         report = SubnetReport(cidr, ip, subnet_mask, desc)
         report.display_report()
         save_choice = input("Do you want to save this report? yes/no: ").lower()
 
         if save_choice == "yes":
-            file_manager = FileManager()
-            file_manager.save_report(report)           
+            self._file_manger.save_report(report)           
             
 
     def cidr_calculator(self):

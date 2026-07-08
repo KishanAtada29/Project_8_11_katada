@@ -8,7 +8,7 @@ Date: July 8th, 2026
 
 from functions import Functions
 from subnet_report import SubnetReport
-import subnetmask_calculator as sc
+from subnetmask_calculator import SubnetMaskCalculator
 
 
 class ClassfulSubnetInfo:
@@ -35,7 +35,8 @@ class ClassfulSubnetInfo:
         """Display Class A, Class B, and Class C subnet information."""
         for class_name, cidr in self.__classful_data.items():
             usable_hosts = self.calculate_usable_hosts(cidr)
-            subnet_mask = sc.subnetmask_calculator(cidr)
+            calculator = SubnetMaskCalculator(cidr)
+            subnet_mask = calculator.calculate_subnetmask()
             description = f"Default {class_name} subnet."
 
             report = SubnetReport(cidr, usable_hosts, subnet_mask, description)

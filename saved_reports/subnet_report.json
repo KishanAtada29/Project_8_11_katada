@@ -1,11 +1,11 @@
 {
-    "cidr": 22,
-    "usable_ip": 1022,
+    "cidr": 32,
+    "usable_ip": 1,
     "subnetmask": [
         255,
         255,
-        252,
-        0
+        255,
+        255
     ],
-    "description": "Commonly used for Medium-to-large networks."
+    "description": "Represents one specific IPv4 address, often used as a host route."
 }
