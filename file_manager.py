@@ -1,9 +1,9 @@
 """
-Program Name: Subnet Planner
+Program Name: Subnet Planner 2.0
 Author: Kishan Atada
 Purpose: Save subnet report data to a JSON file.
 Starter Code Information: No starter code was used.
-Date: June 23, 2026
+Date: July 8th, 2026
 """
 
 import json

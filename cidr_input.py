@@ -1,9 +1,9 @@
 """
-    Program Name: Subnet Planner
-    Author: Kishan Atada
-    Purpose: Collect and validate CIDR input, then display subnet information.
-    Starter Code Information: No starter code was used.
-    Date: June 23, 2026
+Program Name: Subnet Planner 2.0
+Author: Kishan Atada
+Purpose: Collect and validate CIDR input, then display subnet information.
+Starter Code Information: This code was refactored from my own Project 1 code. No instructor starter code was used.
+Date: July 8th, 2026
 """
 from subnetmask_calculator import SubnetMaskCalculator
 from functions import Functions

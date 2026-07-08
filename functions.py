@@ -1,9 +1,9 @@
 """
-    Program Name: Subnet Planner
-    Author: Kishan Atada
-    Purpose: Provide shared helper functions for IPv4 and CIDR calculations.
-    Starter Code Information: No starter code was used.
-    Date: June 23, 2026
+Program Name: Subnet Planner 2.0
+Author: Kishan Atada
+Purpose: Provide shared helper functions for IPv4 and CIDR calculations.
+Starter Code Information: This code was refactored from my own Project 1 code. No instructor starter code was used.
+Date: July 8th, 2026
 """
 
 class Functions:

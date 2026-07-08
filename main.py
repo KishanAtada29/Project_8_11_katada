@@ -1,10 +1,10 @@
 """
-    Program Name: Subnet Planner
-    Author: Kishan Atada
-    Purpose: Provide classful subnet information and calculate subnet masks
-    from CIDR prefixes.
-    Starter Code Information: No starter code was used.
-    Date: June 23, 2026
+Program Name: Subnet Planner 2.0
+Author: Kishan Atada
+Purpose: Provide classful subnet information and calculate subnet masks
+from CIDR prefixes.
+Starter Code Information: This code was refactored from my own Project 1 code. No instructor starter code was used.
+Date: July 8th, 2026
 """
 
 import classful_subnet_info as csi

@@ -1,8 +1,8 @@
 """
-Program Name: Subnet Planner
+Program Name: Subnet Planner 2.0
 Author: Kishan Atada
 Purpose: Convert a CIDR prefix into a four-octet subnet mask.
-Starter Code Information: No starter code was used.
+Starter Code Information: This code was refactored from my own Project 1 code. No instructor starter code was used.
 Date: July 8th, 2026
 """
 

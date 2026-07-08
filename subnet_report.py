@@ -1,3 +1,10 @@
+"""
+Program Name: Subnet Planner 2.0
+Author: Kishan Atada
+Purpose: Store and display subnet report information.
+Starter Code Information: No instructor starter code was used.
+Date: July 8th, 2026
+"""
 class SubnetReport:
     def __init__(self, cidr,usable_ip, subnetmask,description):
         self.__cidr = cidr

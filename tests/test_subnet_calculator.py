@@ -1,9 +1,9 @@
 """
-Program Name: Subnet Planner
+Program Name: Subnet Planner 2.0
 Author: Kishan Atada
 Purpose: Test subnet mask and usable host calculations.
 Starter Code Information: No starter code was used.
-Date: July 7th, 2026
+Date: July 8th, 2026
 """
 
 import unittest
