@@ -7,8 +7,7 @@ Date: July 7th, 2026
 """
 
 import unittest
-
-from subnetmask_calculator import subnetmask_calculator
+from subnetmask_calculator import SubnetMaskCalculator
 from functions import Functions
 
 
@@ -17,15 +16,18 @@ class TestSubnetCalculator(unittest.TestCase):
 
     def test_cidr_0_subnet_mask(self):
         """Test /0 subnet mask."""
-        self.assertEqual(subnetmask_calculator(0), [0, 0, 0, 0])
+        calculator = SubnetMaskCalculator(0)
+        self.assertEqual(calculator.calculate_subnetmask(), [0, 0, 0, 0])
 
     def test_cidr_22_subnet_mask(self):
         """Test /22 subnet mask."""
-        self.assertEqual(subnetmask_calculator(22), [255, 255, 252, 0])
+        calculator = SubnetMaskCalculator(22)
+        self.assertEqual(calculator.calculate_subnetmask(), [255, 255, 252, 0])
 
     def test_cidr_24_subnet_mask(self):
         """Test /24 subnet mask."""
-        self.assertEqual(subnetmask_calculator(24), [255, 255, 255, 0])
+        calculator = SubnetMaskCalculator(24)
+        self.assertEqual(calculator.calculate_subnetmask(), [255, 255, 255, 0])
 
     def test_cidr_31_usable_hosts(self):
         """Test /31 usable hosts."""
