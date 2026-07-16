@@ -37,6 +37,6 @@ Subnet Planner is a Python command-line program that calculates subnet informati
 4. Select an option from the menu.
 
 ## Video Presentation
-
+https://youtu.be/S3nFMuy04s4
 
 Note: I recommend watching the presentation at 1.5x speed
